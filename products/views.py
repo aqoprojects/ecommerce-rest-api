@@ -63,7 +63,7 @@ class CartProductsViewSet(viewsets.ModelViewSet):
     productId = serializer.validated_data.get('productId')
     Quantity = serializer.validated_data.get('quantity', 1)
 
-    cartNumber, created = Cart.objects.get_or_create(user=user, is_order=False)
+    cartNumber, created = Cart.objects.get_or_create(user=user, is_ordered=False)
 
     cart, created = CartProduct.objects.get_or_create(
       productId=productId,
